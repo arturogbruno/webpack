@@ -5,14 +5,18 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         filename: "main.js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "dist"),
     },
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
-            }
-        ]
-    }
+                test: /\.scss$/,
+                use: [
+                    "style-loader", // 3. Injects styles into DOM
+                    "css-loader",   // 2. Turns css into JS
+                    "sass-loader"   // 1. Turns sass into css
+                ],
+            },
+        ],
+    },
 };
